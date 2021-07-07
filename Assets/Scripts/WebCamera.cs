@@ -159,7 +159,7 @@ namespace OpenCvSharp.Demo
 				}
 			}
 		}
-
+		
 		/// <summary>
 		/// Processes current texture
 		/// This function is intended to be overridden by sub-classes
@@ -167,7 +167,7 @@ namespace OpenCvSharp.Demo
 		/// <param name="input">Input WebCamTexture object</param>
 		/// <param name="output">Output Texture2D object</param>
 		/// <returns>True if anything has been processed, false if output didn't change</returns>
-		protected  virtual bool ProcessTexture(WebCamTexture input, ref Texture2D output)
+		protected virtual bool ProcessTexture(WebCamTexture input, ref Texture2D output)
 		{
 			output = Unity.MatToTexture(imageMat, output);
 			return true;

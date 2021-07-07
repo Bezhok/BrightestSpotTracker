@@ -310,7 +310,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772957724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 3840, y: 2160}
@@ -362,7 +362,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &772957728
 RectTransform:
@@ -375,9 +375,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2146278981}
-  - {fileID: 1179235178}
-  - {fileID: 802114766}
   - {fileID: 1631019052}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -471,8 +468,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 772957728}
-  m_RootOrder: 2
+  m_Father: {fileID: 1089478008}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -532,6 +529,7 @@ GameObject:
   - component: {fileID: 1089478011}
   - component: {fileID: 1089478010}
   - component: {fileID: 1089478009}
+  - component: {fileID: 1089478012}
   m_Layer: 5
   m_Name: Canvas2
   m_TagString: Untagged
@@ -549,7 +547,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 2146278981}
+  - {fileID: 802114766}
+  - {fileID: 1179235178}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -619,6 +620,14 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!222 &1089478012
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089478007}
+  m_CullTransparentMesh: 1
 --- !u!850595691 &1132553193
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -768,8 +777,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 772957728}
-  m_RootOrder: 1
+  m_Father: {fileID: 1089478008}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -806,7 +815,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 772957728}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1023,11 +1032,11 @@ GameObject:
   - component: {fileID: 2146278981}
   - component: {fileID: 2146278985}
   - component: {fileID: 2146278984}
-  - component: {fileID: 2146278986}
   - component: {fileID: 2146278982}
   - component: {fileID: 2146278983}
   - component: {fileID: 2146278988}
   - component: {fileID: 2146278987}
+  - component: {fileID: 2146278986}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -1044,9 +1053,9 @@ RectTransform:
   m_GameObject: {fileID: 2146278980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.333334, y: 5.333334, z: 1.7777779}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 772957728}
+  m_Father: {fileID: 1089478008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1123,10 +1132,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2146278980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a8067c792995f246a295505917f31bb, type: 3}
+  m_Script: {fileID: 11500000, guid: e645bf3c156544b9b42996b0f44bae59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Surface: {fileID: 2146278980}
+  trackerView: 0
+  brightestSpotCalculator: {fileID: 2134981776}
 --- !u!114 &2146278987
 MonoBehaviour:
   m_ObjectHideFlags: 0

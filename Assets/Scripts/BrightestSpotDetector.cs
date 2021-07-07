@@ -6,13 +6,20 @@ public class BrightestSpotDetector
 {
     public Vector2 BrightestSpotRelativeToCamera(Mat imageMat)
     {
+        Cv2.MinMaxLoc(TransformedImage(imageMat), out double minVal, out double maxVal, out Point minLoc, out Point maxLoc);
+        
+        return new Vector2(maxLoc.X, maxLoc.Y);
+    }
+
+    public Mat TransformedImage(Mat imageMat)
+    {
         int radius = 11;
         
         // // without mask
         // Mat imageGray = new Mat();
         // Cv2.CvtColor(image, imageGray, ColorConversionCodes.BGR2GRAY);
         // Cv2.GaussianBlur(imageGray, imageGray, new Size(radius, radius), 0);
-        // Cv2.MinMaxLoc(imageGray, out double minVal, out double maxVal, out Point minLoc, out Point maxLoc);
+        // return imageGray;
 
         Mat imgCopy = new Mat();
         imageMat.CopyTo(imgCopy);
@@ -39,9 +46,8 @@ public class BrightestSpotDetector
 			
         Cv2.GaussianBlur(imgCopy, imgCopy, new Size(radius, radius), 0);
         Cv2.CvtColor(imgCopy, imgCopy, ColorConversionCodes.BGR2GRAY);
-        Cv2.MinMaxLoc(imgCopy, out double minVal, out double maxVal, out Point minLoc, out Point maxLoc);
-        
-        return new Vector2(maxLoc.X, maxLoc.Y);
+
+        return imgCopy;
     }
     
     public Vector2 BrightestSpotRelativeToRectangle(Vector2 p, Rect rect)

@@ -9,7 +9,7 @@ public class BrightestSpotCalculator : MonoBehaviour
 {
     public WebCamera webCamera;
     public RectangleDragger rectangleDragger;
-    private BrightestSpotDetector brightestSpotDetector = new BrightestSpotDetector();
+    internal BrightestSpotDetector brightestSpotDetector = new BrightestSpotDetector();
     private Rect rect;
     private Vector2 brightestSpot;
 
