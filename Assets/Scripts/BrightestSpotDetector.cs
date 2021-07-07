@@ -4,6 +4,9 @@ using Rect = UnityEngine.Rect;
 
 public class BrightestSpotDetector
 {
+    public Color32 lowerRGBBound;
+    public Color32 upperRGBBound;
+    
     public Vector2 BrightestSpotRelativeToCamera(Mat imageMat)
     {
         Cv2.MinMaxLoc(TransformedImage(imageMat), out double minVal, out double maxVal, out Point minLoc, out Point maxLoc);
@@ -29,12 +32,12 @@ public class BrightestSpotDetector
         
         Cv2.GaussianBlur(hsvMask, hsvMask, new Size(radius, radius), 0);
         Cv2.CvtColor(hsvMask,  hsvMask, ColorConversionCodes.BGR2HSV);
-			
-        // depends on laser color
-        var redLower = new Scalar(155,25,0);
-        var redUpper = new Scalar(179,255,255);
         
-        Cv2.InRange(hsvMask, redLower, redUpper, hsvMask);
+        // depends on laser color
+        var lower = new Scalar(lowerRGBBound.b, lowerRGBBound.g, lowerRGBBound.r);
+        var upper = new Scalar(upperRGBBound.b, upperRGBBound.g, upperRGBBound.r);
+
+        Cv2.InRange(hsvMask, lower, upper, hsvMask);
         Cv2.Erode(hsvMask, hsvMask, null, null, 2);
         Cv2.Dilate(hsvMask, hsvMask, null, null, 2);
         

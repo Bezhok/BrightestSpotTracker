@@ -1,3 +1,4 @@
+using System;
 using OpenCvSharp;
 using OpenCvSharp.Demo;
 using TMPro;
@@ -12,7 +13,9 @@ public class BrightestSpotCalculator : MonoBehaviour
     internal BrightestSpotDetector brightestSpotDetector = new BrightestSpotDetector();
     private Rect rect;
     private Vector2 brightestSpot;
-
+    public Color32 lowerRGBBound;
+    public Color32 upperRGBBound;
+    
     public Vector2 BrightestSpot
     {
         get => brightestSpot;
@@ -23,6 +26,12 @@ public class BrightestSpotCalculator : MonoBehaviour
 
     public Vector2 BrSpotRelToRect { get; set; }
 
+
+    private void Start()
+    {
+        lowerRGBBound = new Color32(0,25,155, 255);
+        upperRGBBound = new Color32(255,255,179, 255);
+    }
 
     protected Rect CalculateDraggerRectInImageSpace()
     {
@@ -43,6 +52,9 @@ public class BrightestSpotCalculator : MonoBehaviour
     {
         if (webCamera.imageMat == null) return;
 
+        brightestSpotDetector.lowerRGBBound = lowerRGBBound;
+        brightestSpotDetector.upperRGBBound = upperRGBBound;
+        
         brightestSpot = brightestSpotDetector.BrightestSpotRelativeToCamera(webCamera.imageMat);
         WorldPoint = webCamera.ConvertToWorldSpace(brightestSpot);
 
